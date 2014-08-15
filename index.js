@@ -6,7 +6,7 @@ var rdf = require('rdf');
 var AttributeHelper = require('./lib/AttributeHelper');
 var IatiConverter = require('./lib/IatiConverter');
 
-var IATI_NS = 'http://purl.org/collections/iati/';
+exports.IATI_NS = 'http://purl.org/collections/iati/';
 
 exports.convertIatiString = function convertIatiString(iatiString, graph) {
   return exports.convertElementTree(et.parse(iatiString), graph);
@@ -23,7 +23,7 @@ exports.convertElementTree = function convertElementTree(tree, graph) {
 
   tree.findall('iati-activity').forEach(function(xml) {
     var converter = new IatiConverter.ConvertActivity(xml, version, linkedDataDefault);
-    converter.convert(IATI_NS, graph);
+    converter.convert(exports.IATI_NS, graph);
   });
 
   return graph;
