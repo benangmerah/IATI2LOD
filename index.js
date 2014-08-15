@@ -9,7 +9,7 @@ var IatiConverter = require('./lib/IatiConverter');
 var IATI_NS = 'http://purl.org/collections/iati/';
 
 exports.convertIatiString = function convertIatiString(iatiString, graph) {
-  return exports.convertElementTree(et.parse(iatiString));
+  return exports.convertElementTree(et.parse(iatiString), graph);
 };
 
 exports.convertElementTree = function convertElementTree(tree, graph) {
